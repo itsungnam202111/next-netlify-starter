@@ -13,7 +13,7 @@ export default function Home() {
       <main>
         <Header title="반갑습니다." />
         <p className="description">
-          Get started by editing <code>pages/index.js</code>
+          pages/index.js 파일을 수정하시기 바랍니다.
         </p>
       </main>
 
