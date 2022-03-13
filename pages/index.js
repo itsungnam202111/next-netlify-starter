@@ -12,9 +12,7 @@ export default function Home() {
 
       <main>
         <Header title="반갑습니다." />
-        <p className="description">
-          pages/index.js 파일을 수정하시기 바랍니다.
-        </p>
+        <a href='ex01_vue3.html'>첫번째 예제</a> <br>
       </main>
 
       <Footer />
