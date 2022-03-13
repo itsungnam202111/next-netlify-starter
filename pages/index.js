@@ -12,10 +12,18 @@ export default function Home() {
 
       <main>
         <Header title="반갑습니다." />
-        <a href='ex01_vue3.html'>첫번째 예제</a> <br>
-      </main>
+        <a href='ex01_vue3.html'>예제1</a> <br/>
+        <a href='ex02_vue3.html'>예제2</a> <br/>
+        <a href='ex03_vue3.html'>예제3</a> <br/>
+        <a href='ex04_vue3.html'>예제4</a> <br/>
+        <a href='ex05_vue3.html'>예제5</a> <br/>
+        <a href='ex06_vue3.html'>예제6</a> <br/>
+        <a href='ex07_vue3.html'>예제7</a> <br/>
+        <a href='ex08_vue3.html'>예제8</a> <br/>
 
-      <Footer />
+	  </main>
+      
+	  <Footer />
     </div>
   )
 }
