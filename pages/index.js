@@ -12,6 +12,7 @@ export default function Home() {
 
       <main>
         <Header title="반갑습니다." />
+	  </main>
         <a href='ex01_vue3.html'>예제1</a> <br/>
         <a href='ex02_vue3.html'>예제2</a> <br/>
         <a href='ex03_vue3.html'>예제3</a> <br/>
@@ -20,9 +21,6 @@ export default function Home() {
         <a href='ex06_vue3.html'>예제6</a> <br/>
         <a href='ex07_vue3.html'>예제7</a> <br/>
         <a href='ex08_vue3.html'>예제8</a> <br/>
-
-	  </main>
-      
 	  <Footer />
     </div>
   )
