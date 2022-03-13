@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 연습 8</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <!-- 'vue'코드에서 직접 가져올 수 있는 방법 : <script type="importmap"> 라는 기본 브라우저 기능을 활용하여 블록을 통해 가능합니다 .  -->
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3.2.31/dist/vue.esm-browser.js"
+          }
+        }
+    </script>
+    <script type="module">
+        import { createApp } from 'vue'
+        $(function () {
+            const list = {
+                data() {
+                    return {
+                        todos: [
+                            { text: 'JavaScript 베우기' },
+                            { text: 'Node 배우기' },
+                            { text: 'Vue 배우기' },
+                        ]
+                    }
+                }
+            }
+            createApp(list).mount('#app')
+        });
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ol>
+        <ul>
+            <li v-for="todo in todos">
+                {{ todo.text }}
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>

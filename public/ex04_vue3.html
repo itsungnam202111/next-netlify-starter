@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 연습 4</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <style>
+        button {
+            margin: 5px;
+        }
+    </style>
+    <!-- 'vue'코드에서 직접 가져올 수 있는 방법 : <script type="importmap"> 라는 기본 브라우저 기능을 활용하여 블록을 통해 가능합니다 .  -->
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3.2.31/dist/vue.esm-browser.js"
+          }
+        }
+    </script>
+    <script type="module">
+        import { createApp } from 'vue'
+        $(function () {
+            const AttributeBinding = {
+                data() {
+                    return {
+                        message: '이 페이지를 다음 시간에 열었습니다. ' + new Date().toLocaleString()
+                    }
+                }
+            }
+            createApp(AttributeBinding).mount('#app')
+        });
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <span v-bind:title="message">
+            여기에 마우스를 올려두고 잠시 기다리면 제목이 동적으로 바뀝니다!
+        </span>
+    </div>
+</body>
+
+</html>

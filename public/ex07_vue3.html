@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 연습 7</title>
+    <style>
+        input{margin: 3px;}
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <!-- 'vue'코드에서 직접 가져올 수 있는 방법 : <script type="importmap"> 라는 기본 브라우저 기능을 활용하여 블록을 통해 가능합니다 .  -->
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3.2.31/dist/vue.esm-browser.js"
+          }
+        }
+    </script>
+    <script type="module">
+        import { createApp } from 'vue'
+        $(function () {
+            const TwoWayBinding = {
+                data() {
+                    return {
+                        person: {'name':'한사람','age':30,'gender':0}
+                    }
+                }
+            }
+            createApp(TwoWayBinding).mount('#app')
+        });
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{ person.name }}({{person.age}}세, {{person.gender==1 ? "남자" : "여자"}})</div>
+        <input v-model="person.name" placeholder="이름을 입력해보세요" type="text" size="5"/> <br>
+        <input v-model="person.age" placeholder="나이를 입력해보세요" type="number" size="3"/> <br>
+        <label> <input v-model="person.gender" type="radio" name="gender" value="1"> 남자 </label>
+        <label> <input v-model="person.gender" type="radio" name="gender" value="0"> 여자 </label><br>
+    </div>
+</body>
+
+</html>

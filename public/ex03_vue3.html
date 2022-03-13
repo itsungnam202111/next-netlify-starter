@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 연습 3</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>    
+    <style>
+        button { margin: 5px;}
+    </style>
+    <!-- 'vue'코드에서 직접 가져올 수 있는 방법 : <script type="importmap"> 라는 기본 브라우저 기능을 활용하여 블록을 통해 가능합니다 .  -->
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3.2.31/dist/vue.esm-browser.js"
+          }
+        }
+    </script>
+    <script type="module">
+        import { createApp } from 'vue'
+        $(function(){
+            let timer;
+            const counter = {
+                data() {
+                    return { counter: 0 }
+                },
+                methods: {
+                    stopTimer(){
+                        clearInterval(timer);
+                    } ,
+                    startTimer(){
+                        timer = setInterval(() => {
+                                this.counter++;
+                            }, 1000);
+                    } ,
+                    reStartTimer(){
+                        this.counter=0;
+                        clearInterval(timer);
+                        timer = setInterval(() => {
+                                this.counter++;
+                            }, 1000);
+                    } ,
+
+                }
+            }
+            createApp(counter).mount('#app')
+        });
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        카운터 : {{ counter }} <br>
+        <button @click="startTimer">시작</button>
+        <button @click="reStartTimer">다시시작</button>
+        <button @click="stopTimer">멈춰</button>
+    </div>
+</body>
+
+</html>
