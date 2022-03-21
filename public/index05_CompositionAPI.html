@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 빌드 도구 없이 사용하기 -->
+<!-- https://m.blog.naver.com/dndlab/221952030079 참조하기 -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 포함 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.4.6/dist/es-module-shims.js"></script>
+    <!-- 기본 ES 모듈에서 Vue를 사용하려면 대신 다음 HTML을 사용하십시오. -->
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+          }
+        }
+    </script>
+    <script type="module">
+        import { createApp, ref, onMounted, computed } from 'vue';
+
+        const useCount = () => {
+            const count = ref(0);
+            const double = computed(() => count.value * 2);
+            const increase = () => count.value++;
+            const decrease = () => count.value--;
+            onMounted(() => {
+                console.log(`연결됨 : count초기값은 ${count.value}입니다.`)
+            });      
+            return { count, double, increase, decrease };
+        };
+        
+        $(function () {
+            createApp({
+                setup () {
+                    const { count, double, increase, decrease } = useCount();
+                    return {
+                        count,
+                        double,
+                        increase,
+                        decrease
+                    }
+                },
+                template:/*html*/ `
+                <div>
+                    <h1>Count: {{ count }}</h1>
+                    <h1>Double: {{ double }}</h1>
+                    <button @click="increase">증가하기</button>
+                    <button @click="decrease">감소하기</button>
+                </div>
+                `
+            }).mount('#app');
+        });
+    </script>
+    <title>Document</title>
+    <style>button{margin: 5px;}</style>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="Generator" content="EditPlus®">
+	<meta name="Author" content="">
+	<meta name="Keywords" content="">
+	<meta name="Description" content="">
+	<title>Document</title>
+	<style type="text/css">
+		.input-file-button {
+			padding: 6px 25px;
+			background-color: #FF6600;
+			border-radius: 4px;
+			color: white;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<label class="input-file-button" for="input-file">
+		업로드
+	</label>
+	<input type="file" id="input-file" style="display:none;"
+		onchange="document.getElementById('filename').innerText = this.value" />
+	<span id="filename"></span>
+</body>
+
+</html>

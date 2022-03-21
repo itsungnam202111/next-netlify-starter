@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 빌드 도구 없이 사용하기 -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 포함 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <!-- 
+        선호하는 브라우저가 아직 가져오기 맵을 지원하지 않는 경우 es-module-shims 로 폴리필할 수 있습니다 : firefox에서는 추가해야 함
+        https://github.com/guybedford/es-module-shims
+    -->
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.4.6/dist/es-module-shims.js"></script>
+    <!-- 기본 ES 모듈에서 Vue를 사용하려면 대신 다음 HTML을 사용하십시오. -->
+    <!--
+    코드에서 직접 가져올 수 있는 방법에 주목 하세요. 
+    이것은 Import Maps 라는 기본 브라우저 기능을 활용하여 블록에 'vue'의해 가능합니다 . 
+    가져오기는 현재 Chromium 기반 브라우저에서만 사용할 수 있으므로 학습 과정에서 Chrome 또는 Edge를 사용하는 것이 좋습니다. 
+    선호하는 브라우저가 아직 가져오기 맵을 지원하지 않는 경우 es-module-shims 로 폴리필할 수 있습니다 .<script type="importmap">
+    -->
+    <script type="importmap">
+        {
+          "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+          }
+        }
+    </script>
+    <script type="module">
+        import { createApp } from 'vue';
+        $(function () {
+            createApp({
+                data() {
+                    return {
+                        message: 'Hello Vue!'
+                    }
+                }
+            }).mount('#app')
+        });
+    </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">{{ message }}</div>
+</body>
+
+</html>

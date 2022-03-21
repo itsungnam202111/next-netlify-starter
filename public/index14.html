@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<!-- 빌드 도구 없이 사용하기 -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <!-- 날짜 사용 라이브러리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/ko.min.js" crossorigin="anonymous"></script>
+
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.4.6/dist/es-module-shims.js"></script>
+    <script type="importmap">
+        {
+            "imports": {
+                "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+    <style>
+        div.box {
+            padding: 20px;
+            border: 1px solid gray;
+            border-radius: 20px;
+            margin: 15px;
+            font-size: 12pt;
+        }
+        </style>
+    <title>OpenAPI JSON파일 사용하기</title>
+</head>
+
+<body>
+    <div class="box">
+        날짜선택 : <input type="text" id="datepicker"> 
+    </div>
+    <div id="app" class="box">
+        <h3>OpenAPI JSON파일 사용하기</h3>
+        <button @click="dataUpdate" id="btn" style="display: none;">다시불러오기</button>
+        <hr>
+        <ul>
+        <h4>{{ data.boxOfficeResult.boxofficeType }} ({{data.boxOfficeResult.showRange}})</h4>
+            <li v-for="item in data.boxOfficeResult.dailyBoxOfficeList">
+                {{ (item.rank<10 ? "0":"" ) + item.rank }}위 : {{ item.movieNm}}
+            </li>
+        </ul>
+    </div>
+    <script type="module">
+        import { createApp } from 'vue';
+        $("#datepicker").val(moment().subtract(1, 'days').format('YYYYMMDD'));
+        $("#datepicker").datepicker({
+            dateFormat: "yymmdd",
+            onSelect: function(d){
+                update(d);
+                setTimeout(()=>{
+                    $("#btn").click();
+                }, 1000); // 1초후 숨겨진 버튼 클릭
+            }
+        });
+        const url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt="; 
+        let data2 = await axios.get(url +  $("#datepicker").val()).then(response => {console.log(response.data); return response.data;});
+        async function update(d){
+            data2 = await axios.get(url +  d).then(response => {console.log(response.data); return response.data;});
+        }
+        createApp({
+            data() {
+                const data = data2
+                return {
+                    data
+                }
+            },
+            methods:{
+                dataUpdate() {
+                    this.data = data2;
+                }
+            }
+        }).mount('#app')
+    </script>    
+</body>
+
+</html>
