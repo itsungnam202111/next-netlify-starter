@@ -13,15 +13,24 @@ export default function Home() {
       <main>
         <Header title="반갑습니다." />
 	  </main>
-        <a href='ex01_vue3.html'>예제1</a> <br/>
-        <a href='ex02_vue3.html'>예제2</a> <br/>
-        <a href='ex03_vue3.html'>예제3</a> <br/>
-        <a href='ex04_vue3.html'>예제4</a> <br/>
-        <a href='ex05_vue3.html'>예제5</a> <br/>
-        <a href='ex06_vue3.html'>예제6</a> <br/>
-        <a href='ex07_vue3.html'>예제7</a> <br/>
-        <a href='ex08_vue3.html'>예제8</a> <br/>
-	  <Footer />
+        <a href='index01.html'>예제 01</a> <br/>
+        <a href='index02.html'>예제 02</a> <br/>
+        <a href='index03.html'>예제 03</a> <br/>
+        <a href='index04.html'>예제 04</a> <br/>
+        <a href='index05.html'>예제 05</a> <br/>
+        <a href='index06.html'>예제 06</a> <br/>
+        <a href='index07.html'>예제 07</a> <br/>
+        <a href='index08.html'>예제 08</a> <br/>
+        <a href='index09.html'>예제 09</a> <br/>
+        <a href='index10.html'>예제 10</a> <br/>
+        <a href='index11.html'>예제 11</a> <br/>
+        <a href='index12.html'>예제 12</a> <br/>
+        <a href='index13.html'>예제 13</a> <br/>
+        <a href='index14.html'>예제 14</a> <br/>
+        <a href='router01.html>라우터 예제 01</a> <br/>
+        <a href='router02.html>라우터 예제 02</a> <br/>
+        <a href='router03.html>라우터 예제 03</a> <br/>
+	<Footer />
     </div>
   )
 }
