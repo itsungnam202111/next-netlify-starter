@@ -27,9 +27,9 @@ export default function Home() {
         <a href='index12.html'>예제 12</a> <br/>
         <a href='index13.html'>예제 13</a> <br/>
         <a href='index14.html'>예제 14</a> <br/>
-        <a href='router01.html>라우터 예제 01</a> <br/>
-        <a href='router02.html>라우터 예제 02</a> <br/>
-        <a href='router03.html>라우터 예제 03</a> <br/>
+        <a href='router01.html'>라우터 예제 01</a> <br/>
+        <a href='router02.html'>라우터 예제 02</a> <br/>
+        <a href='router03.html'>라우터 예제 03</a> <br/>
 	<Footer />
     </div>
   )
