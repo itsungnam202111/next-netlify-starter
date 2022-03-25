@@ -1,5 +1,7 @@
 # project2
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a0928ac8-540b-4a33-8b9b-d0b9ecde4822/deploy-status)](https://app.netlify.com/sites/itsungnam/deploys)
+
 ## Project setup
 ```
 npm install
